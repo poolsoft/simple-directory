@@ -4,7 +4,7 @@ Donate link: http://mywestisland.info
 Tags: directory,custom post type, piklist, wordpress directory, business directory, wordpress business directory plugin, simple directory plugin, post, schema.org, microformat, google maps
 Requires at least: 3.9
 Tested up to: 4.1
-Stable tag: 0.6.2
+Stable tag: 0.6.3
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
