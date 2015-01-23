@@ -3,7 +3,7 @@
  * Plugin Name: Simple Directory Plugin
  * Plugin URI: http://lautman.ca
  * Description: Creates a very simple business listing post type.
- * Version:0.5
+ * Version:0.6
  * Author: michaellautman
  * Author URI: http://lautman.ca
  * Plugin Type: Piklist
@@ -182,6 +182,11 @@ function my_theme_register_required_plugins() {
             'slug'      => 'categories-images',
             'required'  => false,
         ),
+		array(
+			'name'	=> 'Allow HTML in Category Descriptions',
+			'slug' =>	'allow-html-in-category-descriptions',
+			'required' => false,
+			),
 
     );
 
