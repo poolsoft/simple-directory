@@ -1,0 +1,2 @@
+[10-Nov-2014 00:58:27 America/Toronto] PHP Fatal error:  Call to undefined function add_filter() in /home/cont5476/public_html/mywestisland.info/wp-content/plugins/simple-directory/includes/create-listing.php on line 3
+[11-Nov-2014 05:11:52 America/Toronto] PHP Fatal error:  Call to undefined function add_filter() in /home/cont5476/public_html/mywestisland.info/wp-content/plugins/simple-directory/includes/create-listing.php on line 3

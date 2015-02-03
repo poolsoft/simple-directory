@@ -3,11 +3,12 @@
  * Plugin Name: Simple Directory Plugin
  * Plugin URI: http://lautman.ca
  * Description: Creates a very simple business listing post type.
- * Version:0.7
+ * Version:0.8
  * Author: michaellautman
  * Author URI: http://lautman.ca
  * Plugin Type: Piklist
- *
+ * Donate Link: http://mywestisland.info
+ * Text Domain: simple-dir
 
  *
  * This program is free software; you can redistribute it and/or modify it under the terms of the GNU 
@@ -21,13 +22,12 @@
  * @license http://www.gnu.org/licenses/old-licenses/gpl-3.0.html
  */
 
-/* Launch the plugin. */
 
+// Launch the plugin. 
+//Include the Piklist Checker
 
-
-/*Include the Piklist Checker*/
-add_action('init', 'simple_dir_check_for_piklist');
-function simple_dir_check_for_piklist()
+add_action('init', 'my_init_function');
+function my_init_function()
 {
   if(is_admin())
   {
@@ -40,91 +40,48 @@ function simple_dir_check_for_piklist()
   }
 }
 
-/*Create The Listing Post Type*/
-add_filter('piklist_post_types', 'listing_post_type');
- function listing_post_type($post_types)
- {
-  $post_types['listing'] = array(
-    'labels' => piklist('post_type_labels', 'Listings')
-    ,'title' => __('Simple Business Listings')
-    ,'public' => true
-	  ,'has_archive' => 'true'
-	  ,'capability_type' => 'page'
-    ,'rewrite' => array(
-      'slug' => 'listing'
-    )
-    ,'supports' => array(
-      	'title',
-		'author'
-      ,'revisions'
-		,'editor'
-		, 'excerpt'
-		,'thumbnail'
-		, 'comments'
-		
-    )
-    ,'hide_meta_box' => array(
-      'slug'
-      ,'author'
-      ,'revisions'
-      ,'comments'
-      ,'commentstatus'
-    )
-	 ,'status' => array(
-	 	'draft' => array(
-			'label' => 'Draft')
-	 
-	 	,'premium' => array(
-			'label' => 'Premium Listing')
-		 
-		 ,'basic' => array(
-		 	'label' => 'Basic Listing')
-	 ) 
-  );
-return $post_types;
-}
-
-/*Register The Taxonomy*/
-add_filter('piklist_taxonomies', 'simple_directory_tax');
- function simple_directory_tax($taxonomies)
- {
-   $taxonomies[] = array(
-      'post_type' => 'listing'
-      ,'name' => 'listing_category'
-      ,'show_admin_column' => true
-      ,'hide_meta_box' => true
-      ,'configuration' => array(
-        'hierarchical' => true
-        ,'labels' => piklist('taxonomy_labels', 'Category')
-        ,'show_ui' => true
-        ,'query_var' => true
-        ,'rewrite' => array( 
-          'slug' => 'listing-category' 
-        )
-      )
-    );
-return $taxonomies;
-}
-
-foreach ( array( 'pre_term_description' ) as $filter ) {
-    remove_filter( $filter, 'wp_filter_kses' );
-}
- 
-foreach ( array( 'term_description' ) as $filter ) {
-    remove_filter( $filter, 'wp_kses_data' );
-}
+ //Create The Listing
+include_once ('includes/create-listing.php');
+//Edit The List Post Page
+//include_once ('includes/custom-admin.php');
+//Activate Sitelinks Search Box
+include_once ('includes/sitelinks-searchbox-markup.php');
+//Get The Shortcodes
+include_once ('includes/shortcodes.php');
+//Load The Templates
 /*Load the Appropriate Templates*/
 add_filter( 'template_include', 'insert_my_template' );
-
+//Create The Settings Page
+ add_filter('piklist_admin_pages', 'simple_directory_setting_pages');
+  function simple_directory_setting_pages($pages)
+  {
+     $pages[] = array(
+      'page_title' => __('Custom Settings')
+      ,'menu_title' => __('Settings', 'piklist')
+      ,'sub_menu' => 'edit.php?post_type=listing' 
+      ,'capability' => 'manage_options'
+      ,'menu_slug' => 'custom_settings'
+      ,'setting' => 'simple_directory_settings'
+      ,'menu_icon' => plugins_url('piklist/parts/img/piklist-icon.png')
+      ,'page_icon' => plugins_url('piklist/parts/img/piklist-page-icon-32.png')
+      ,'single_line' => true
+      ,'default_tab' => 'Basic'
+      ,'save_text' => 'Save  Settings'
+    );
+ 
+    return $pages;
+  }
 function insert_my_template( $template )
 {
-    if ( 'listing' === get_post_type() && is_single() )
-        return dirname( __FILE__ ) . '/templates/single-listing.php';
+ if ( 'listing' === get_post_type() && is_single() )
+ return dirname( __FILE__ ) . '/templates/single-listing.php';
 	if ( 'listing' === get_post_type() && is_archive())
 		return dirname(__FILE__) . '/templates/archive-listing.php';
 		
-    return $template;
+ return $template;
 }
+
+/*
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
 	die;
@@ -132,28 +89,60 @@ if ( ! defined( 'WPINC' ) ) {
 
 require_once( plugin_dir_path( __FILE__ ) . 'class-page-template.php' );
 add_action( 'plugins_loaded', array( 'Page_Template_Plugin', 'get_instance' ) );
-/*Get The CSS*/
+ */
 // Register Style
 function simple_directory_styles() {
 
-	wp_register_style( 'simple-directory-foundation', plugins_url('simple-directory/foundation.css', dirname(__FILE__)), false, false );
+	wp_register_style ('simple-directory-normalize', plugins_url('simple-directory/css/normalize.css', dirname(__FILE__)), false, false);
+	wp_enqueue_style ('simple-directory-normalize');
+	wp_register_style( 'simple-directory-foundation', plugins_url('simple-directory/css/foundation.css', dirname(__FILE__)), false, false );
 	wp_enqueue_style( 'simple-directory-foundation' );
 	wp_register_style('simple-directory-ficons', plugins_url('simple-directory/foundation-icons/foundation-icons.css', dirname(__FILE__)),false, false);
 	wp_enqueue_style ('simple-directory-ficons');
 	wp_register_style('simple-directory-style', plugins_url('simple-directory/style.css', dirname(__FILE__)),false, false);
 	wp_enqueue_style('simple-directory-style');
+}
+
+
+// Hook into the 'wp_enqueue_scripts' action
+
+add_action( 'wp_enqueue_scripts', 'simple_directory_styles');
+
+//Load Admin Styles
+
+//  function simple_directory_admin_styles() {
+ 
+//      wp_enqueue_style( 'simple-directory-foundation' );
+//  wp_enqueue_style( 'simple-directory-ficons' );
+//   wp_enqueue_style( 'simple-directory-style' );
+//   }
+//Inject Custom CSS
+add_action( 'wp_head', 'simple_directory_custom_styles' );
+function simple_directory_custom_styles() {
+
+  echo '<style type="text/css">' . "\n";
+ $directory_settings = get_option('simple_directory_settings');
+	$custom_css = $directory_settings['listing_custom_css'];
+	echo $custom_css;
+  echo '</style>' . "\n";
 
 }
 
-// Hook into the 'wp_enqueue_scripts' action
-add_action( 'wp_enqueue_scripts', 'simple_directory_styles');
-
+//Footer Credit Link
+function simple_directory_credit_link(){
+	echo '<p>Simple Directory Plugin by <a href="http://mywestisland.info" target="_blank" title="West Island Business Directory">MyWestIsland.INFO: The West Island Business Directory</a>.</p>';
+}
+$directory_settings = get_option('simple_directory_settings');
+$credit_link = $directory_settings['show_credit_link'];
+if ($credit_link =='yes'){
+	add_action('wp_footer','simple_directory_credit_link');
+}
 /*Get Required/Recommended Plugins*/
-require_once   'class-tgm-plugin-activation.php';
+require_once 'class-simple-dir-plugin-activation.php';
 
 
 
-add_action( 'tgmpa_register', 'my_theme_register_required_plugins' );
+add_action( 'tgmpa_register', 'simple_directory_register_required_plugins' );
 /**
  * Register the required plugins for this theme.
  *
@@ -166,68 +155,61 @@ add_action( 'tgmpa_register', 'my_theme_register_required_plugins' );
  * This function is hooked into tgmpa_init, which is fired within the
  * TGM_Plugin_Activation class constructor.
  */
-function my_theme_register_required_plugins() {
+function simple_directory_register_required_plugins() {
 
-    /**
-     * Array of plugin arrays. Required keys are name and slug.
-     * If the source is NOT from the .org repo, then source is also required.
-     */
-    $plugins = array(
+
+$plugins = array(
 
 
 
-        // This is an example of how to include a plugin from the WordPress Plugin Repository.
-        array(
-            'name'      => 'Categories Images',
-            'slug'      => 'categories-images',
-            'required'  => false,
-        ),
-		array(
-			'name'	=> 'Allow HTML in Category Descriptions',
-			'slug' =>	'allow-html-in-category-descriptions',
-			'required' => false,
-			),
 
-    );
+ array(
+ 'name' => 'Categories Images',
+ 'slug' => 'categories-images',
+ 'required'  => false,
+),
+array(
+	'name' =>'Allow HTML In Category Descriptions',
+	'slug' =>'allow-html-in-category-descriptions',
+	'required' => false,
+	),
 
-    /**
-     * Array of configuration settings. Amend each line as needed.
-     * If you want the default strings to be available under your own theme domain,
-     * leave the strings uncommented.
-     * Some of the strings are added into a sprintf, so see the comments at the
-     * end of each line for what each argument will be.
-     */
-    $config = array(
-        'default_path' => '',                      // Default absolute path to pre-packaged plugins.
-        'menu'         => 'tgmpa-install-plugins', // Menu slug.
-        'has_notices'  => true,                    // Show admin notices or not.
-        'dismissable'  => true,                    // If false, a user cannot dismiss the nag message.
-        'dismiss_msg'  => '',                      // If 'dismissable' is false, this message will be output at top of nag.
-        'is_automatic' => false,                   // Automatically activate plugins after installation or not.
-        'message'      => '',                      // Message to output right before the plugins table.
-        'strings'      => array(
-            'page_title'                      => __( 'Install Required Plugins', 'tgmpa' ),
-            'menu_title'                      => __( 'Install Plugins', 'tgmpa' ),
-            'installing'                      => __( 'Installing Plugin: %s', 'tgmpa' ), // %s = plugin name.
-            'oops'                            => __( 'Something went wrong with the plugin API.', 'tgmpa' ),
-            'notice_can_install_required'     => _n_noop( 'This theme requires the following plugin: %1$s.', 'This theme requires the following plugins: %1$s.' ), // %1$s = plugin name(s).
-            'notice_can_install_recommended'  => _n_noop( 'This theme recommends the following plugin: %1$s.', 'This theme recommends the following plugins: %1$s.' ), // %1$s = plugin name(s).
-            'notice_cannot_install'           => _n_noop( 'Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed.', 'Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed.' ), // %1$s = plugin name(s).
-            'notice_can_activate_required'    => _n_noop( 'The following required plugin is currently inactive: %1$s.', 'The following required plugins are currently inactive: %1$s.' ), // %1$s = plugin name(s).
-            'notice_can_activate_recommended' => _n_noop( 'The following recommended plugin is currently inactive: %1$s.', 'The following recommended plugins are currently inactive: %1$s.' ), // %1$s = plugin name(s).
-            'notice_cannot_activate'          => _n_noop( 'Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated.', 'Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated.' ), // %1$s = plugin name(s).
-            'notice_ask_to_update'            => _n_noop( 'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.', 'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.' ), // %1$s = plugin name(s).
-            'notice_cannot_update'            => _n_noop( 'Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated.', 'Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated.' ), // %1$s = plugin name(s).
-            'install_link'                    => _n_noop( 'Begin installing plugin', 'Begin installing plugins' ),
-            'activate_link'                   => _n_noop( 'Begin activating plugin', 'Begin activating plugins' ),
-            'return'                          => __( 'Return to Required Plugins Installer', 'tgmpa' ),
-            'plugin_activated'                => __( 'Plugin activated successfully.', 'tgmpa' ),
-            'complete'                        => __( 'All plugins installed and activated successfully. %s', 'tgmpa' ), // %s = dashboard link.
-            'nag_type'                        => 'updated' // Determines admin notice type - can only be 'updated', 'update-nag' or 'error'.
-        )
-    );
+ );
 
-    tgmpa( $plugins, $config );
+
+ $config = array(
+ 'default_path' => '', // Default absolute path to pre-packaged plugins.
+ 'menu' => 'tgmpa-install-plugins', // Menu slug.
+ 'has_notices'  => true,// Show admin notices or not.
+ 'dismissable'  => true, // If false, a user cannot dismiss the nag message.
+'dismiss_msg'  => '', // If 'dismissable' is false, this message will be output at top of nag.
+'is_automatic' => false, // Automatically activate plugins after installation or not.
+'message' => '',// Message to output right before the plugins table.
+'strings' => array(
+ 'page_title' => __( 'Install Required Plugins', 'simple-dir' ),
+ 'menu_title' => __( 'Install Plugins', 'simple-dir' ),
+ 'installing' => __( 'Installing Plugin: %s', 'simple-dir' ), // %s = plugin name.
+ 'oops' => __( 'Something went wrong with the plugin API.', 'simple-dir' ),
+ 'notice_can_install_required' => _n_noop( 'This theme requires the following plugin: %1$s.', 'This theme requires the following plugins: %1$s.' ), // %1$s = plugin name(s).
+ 'notice_can_install_recommended'  => _n_noop( 'This theme recommends the following plugin: %1$s.', 'This theme recommends the following plugins: %1$s.' ), // %1$s = plugin name(s).
+ 'notice_cannot_install' => _n_noop( 'Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed.', 'Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed.' ), // %1$s = plugin name(s).
+ 'notice_can_activate_required' => _n_noop( 'The following required plugin is currently inactive: %1$s.', 'The following required plugins are currently inactive: %1$s.' ), // %1$s = plugin name(s).
+ 'notice_can_activate_recommended' => _n_noop( 'The following recommended plugin is currently inactive: %1$s.', 'The following recommended plugins are currently inactive: %1$s.' ), // %1$s = plugin name(s).
+ 'notice_cannot_activate' => _n_noop( 'Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated.', 'Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated.' ), // %1$s = plugin name(s).
+ 'notice_ask_to_update' => _n_noop( 'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.', 'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.' ), // %1$s = plugin name(s).
+ 'notice_cannot_update' => _n_noop( 'Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated.', 'Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated.' ), // %1$s = plugin name(s).
+ 'install_link' => _n_noop( 'Begin installing plugin', 'Begin installing plugins' ),
+ 'activate_link' => _n_noop( 'Begin activating plugin', 'Begin activating plugins' ),
+ 'return' => __( 'Return to Required Plugins Installer', 'simple-dir' ),
+ 'plugin_activated' => __( 'Plugin activated successfully.', 'simple-dir' ),
+ 'complete' => __( 'All plugins installed and activated successfully. %s', 'simple-dir' ), // %s = dashboard link.
+ 'nag_type'=> 'updated' // Determines admin notice type - can only be 'updated', 'update-nag' or 'error'.
+ )
+);
+
+ tgmpa( $plugins, $config );
 
 }
+
+
 
