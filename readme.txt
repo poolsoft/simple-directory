@@ -4,7 +4,7 @@ Donate link: http://mywestisland.info
 Tags: directory,custom post type, piklist, wordpress directory, business directory, wordpress business directory plugin, simple directory plugin, post, schema.org, microformat, google maps
 Requires at least: 3.9
 Tested up to: 4.1
-Stable tag: 0.7
+Stable tag: 0.8
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -40,7 +40,7 @@ The archive-listing.php template displays the listings in a given category showi
 Simple directory is built on Foundation by Zurb and Piklist.
 
 = Recommended Plugins =
-Simple Directory requires [Piklist](http://wordpress.org/plugins/piklist) and works best if you also install [Categories Images](http://wordpress.org/plugins/categories-images) and [Allow HTML In Category Descriptions](http://wordpress.org/plugins//allow-html-in-category-descriptions/).
+Simple Directory requires [Piklist](http://wordpress.org/plugins/piklist) and works best if you also install [Categories Images](http://wordpress.org/plugins/categories-images) and [Allow HTML In Category Descriptions](http://wordpress.org/plugins/allow-html-in-category-descriptions/).
 
 
 == Installation ==
@@ -58,7 +58,14 @@ METHOD 2 - MANUAL UPLOAD
 
 METHOD 3 - FTP
 
-1. Download hCard Widget for WordPress plugin 'hCard_Widget.zip'. Extract the contents of the file.
+1. Download hCard Widget for WordPress plugin 'simple-directory.zip'. Extract the contents of the file.
 1. Using your favourite FTP client, upload the folder to '/wp-content/plugins/' on your server.
 1. Login to your WordPress account and go to the Plugins page.
 1. Activate the plugin.
+
+== Changelog ==
+= 0.8 = 
+*Added settings page.
+
+== Upgrade Notice ==
+*There are now some basic settings that can be changed.

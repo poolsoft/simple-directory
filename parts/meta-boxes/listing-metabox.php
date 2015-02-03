@@ -2,6 +2,7 @@
 /*
 Title:Listing Details
 Post Type: listing
+Priority: high
 */
 
 piklist ('field', array(

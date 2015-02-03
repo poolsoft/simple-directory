@@ -10,12 +10,15 @@
  */
 
 get_header(); ?>
-
+<div class="row row-padded">
 	<section id="primary" class="content-area">
 		<div id="content" class="site-content" role="main">
 
-			<?php if ( have_posts() ) : ?>
-
+			<?php 
+				if ( have_posts() ) :
+				
+				?>
+				
 			<header class="listing-archive-header row">
 				
 	<div class="medium-3 columns">
@@ -32,8 +35,10 @@ get_header(); ?>
 				?>
 	
 			</header><!-- .archive-header -->
-
-			<?php
+<!--START THE TEST PREMIUM LOOP -->
+	
+			<?php 
+				
 					// Start the Loop.
 					while ( have_posts() ) : the_post();{?>
 					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -41,9 +46,12 @@ get_header(); ?>
 		<div class="row" >
 			<div class="small-8 columns">
 		<?php the_title( '<span itemprop="name"><h1 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h1><span>' ); ?>
-			<?php if($dir_meta['listing_street_address'][0] !='') {?>
-				<?php echo $dir_meta['listing_street_address'][0];?>, <?php echo $dir_meta['listing_city'][0];?>, <?php echo $dir_meta['listing_postalcode'][0];?><br/><?php }?>
-				<a href="<?php get_permalink();?>">VIEW LISTING</a>
+			<?php if($dir_meta['listing_status'][0]=='premium'){?><i class="fi-star"></i>PREMIUM LISTING<br/><?php }?>
+				<?php if($dir_meta['listing_street_address'][0] !='') {?>
+				<?php echo $dir_meta['listing_street_address'][0];?>, <?php echo $dir_meta['listing_city'][0];?>, <?php echo $dir_meta['listing_postalcode'][0];?><br/>
+				<?php echo get_the_term_list($post->ID,'listing_category','<strong>Listed Under:</strong>','&nbsp;','');?>
+				<?php }?>
+				
 					</div>
 			<div class="small-4 columns">
 												
@@ -55,22 +63,34 @@ get_header(); ?>
 				</div>
 					</div>
 					</article>
+					<div class="row row-padded">
+					</div>
 					<?php }
 
 					
 
 					endwhile;
 					// Previous/next page navigation.
-					twentyfourteen_paging_nav();
+					next_posts_link('Previous Listings');
+					previous_posts_link('Next Listings');
 
 				else :
 				
 				endif;
+				wp_reset_postdata();
 			?>
 		</div><!-- #content -->
+		<?php rewind_posts(); ?>
+		
 	</section><!-- #primary -->
 
 <?php
-get_sidebar( 'content' );
-get_sidebar();
+$directory_settings = get_option('simple_directory_settings');
+ $show_sidebar = $directory_settings['archive_listings_show_sidebar'];
+ if ($show_sidebar == 'yes')
+ echo get_sidebar();
+ ?>
+ </div>
+ <?php
+
 get_footer();
