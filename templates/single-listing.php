@@ -18,7 +18,7 @@ get_header(); ?>
 			
 			<div class="medium-5 columns">
 		
-		<?php the_title( '<span itemprop="name"><h1 class="entry-title">', '</h1><span>' ); ?>
+		<?php the_title( '<span itemprop="name"><h1 class="listing-title">', '</h1><span>' ); ?>
 			</div>
 				<div class="medium-3 columns end">
 					
