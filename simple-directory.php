@@ -3,7 +3,7 @@
  * Plugin Name: Simple Directory Plugin
  * Plugin URI: http://lautman.ca
  * Description: Creates a very simple business listing post type.
- * Version:0.8
+ * Version:0.9.2
  * Author: michaellautman
  * Author URI: http://lautman.ca
  * Plugin Type: Piklist
@@ -26,8 +26,8 @@
 // Launch the plugin. 
 //Include the Piklist Checker
 
-add_action('init', 'my_init_function');
-function my_init_function()
+add_action('init', 'simple_dir_check_piklist');
+function simple_dir_check_piklist()
 {
   if(is_admin())
   {
@@ -50,7 +50,7 @@ include_once ('includes/sitelinks-searchbox-markup.php');
 include_once ('includes/shortcodes.php');
 //Load The Templates
 /*Load the Appropriate Templates*/
-add_filter( 'template_include', 'insert_my_template' );
+add_filter( 'template_include', 'simple_dir_load_template' );
 //Create The Settings Page
  add_filter('piklist_admin_pages', 'simple_directory_setting_pages');
   function simple_directory_setting_pages($pages)
@@ -71,7 +71,7 @@ add_filter( 'template_include', 'insert_my_template' );
  
     return $pages;
   }
-function insert_my_template( $template )
+function simple_dir_load_templates( $template )
 {
  if ( 'listing' === get_post_type() && is_single() )
  return dirname( __FILE__ ) . '/templates/single-listing.php';
