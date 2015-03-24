@@ -3,14 +3,15 @@ Contributors: michaellautman
 Donate link: http://mywestisland.info
 Tags: directory,custom post type, piklist, wordpress directory, business directory, wordpress business directory plugin, simple directory plugin, post, schema.org, microformat, google maps
 Requires at least: 3.9
-Tested up to: 4.1
-Stable tag: 0.8
+Tested up to: 4.1.1
+Stable tag: 1.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 Simple business directory plugin for WordPress.  Custom post type with single listing and archive templates included.
 
 == Description ==
+Simple Directory is the hottest new directory plugin for WordPress.  
 THIS PLUGIN IS IN BETA!  Things might not work... 
 Let me know in the support section.
 Simple Directory allows you to easily create a directory of people, places, business... anything really!
@@ -64,6 +65,8 @@ METHOD 3 - FTP
 1. Activate the plugin.
 
 == Changelog ==
+= 0.9.2 =
+Updates to archive pages.  Premium listings are now shown above basic listings.  
 = 0.8 = 
 *Added settings page.
 
