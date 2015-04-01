@@ -17,6 +17,10 @@ function simple_dir_sitelinks_search_box (){
         echo '</script>' . PHP_EOL;
         }
 } 
+$settings = get_option('simple_directory_settings');
+$sitelinks = $settings['simple_dir_enable_sitelinks_search'];
+if ($sitelinks == 'yes') {
 add_action( 'wp_footer', 'simple_dir_sitelinks_search_box', 10000 );
+}
 
 ?>

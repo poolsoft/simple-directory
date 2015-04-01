@@ -1,19 +1,20 @@
 === Simple Directory ===
 Contributors: michaellautman
-Donate link: http://mywestisland.info
-Tags: directory,custom post type, piklist, wordpress directory, business directory, wordpress business directory plugin, simple directory plugin, post, schema.org, microformat, google maps
-Requires at least: 3.9
-Tested up to: 4.1
-Stable tag: 0.8
+Donate link: http://contexta.ca/simple-directory/
+Tags: directory,custom post type, piklist, wordpress directory, business directory, wordpress business directory plugin, simple directory plugin, post, schema.org, microformat, google maps,shortcode
+Requires at least: 4.0
+Tested up to: 4.1.1
+Stable tag: 1.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Simple business directory plugin for WordPress.  Custom post type with single listing and archive templates included.
+Quickly and easily create a powerful directory on your site. Great for local directories, address books, Yellow Pages style business listings - and much more.
 
 == Description ==
-THIS PLUGIN IS IN BETA!  Things might not work... 
-Let me know in the support section.
-Simple Directory allows you to easily create a directory of people, places, business... anything really!
+
+Simple Directory is the hottest new directory plugin for WordPress.  
+Quickly and easily create a powerful directory on your site. Great for local directories, address books, Yellow Pages style business listings - and much more.
+
 
 Simple Directory creates a custom post type (Listings) with the following fields:
 * Address
@@ -22,8 +23,7 @@ Simple Directory creates a custom post type (Listings) with the following fields
 * Fax number
 * Email address
 * Social links (G+, Twitter, Facebook, LinkedIn, Pinterest and Instagram)
-
-
+ 
 = Custom Templates =
 Simple Directory comes with two templates: single-listing.php and archive-listing.php.
 Single-listing.php displays a complete version of the listing including:
@@ -35,6 +35,9 @@ Single-listing.php displays a complete version of the listing including:
 * Embeded Google Map
 
 The archive-listing.php template displays the listings in a given category showing the address and phone number, with a click to call link on small screens.
+
+= Powerful Search Features =
+Use the included search widget or '[listing_search'] shortcode to add a search box that will only search listings.
 
 = Built to Grow = 
 Simple directory is built on Foundation by Zurb and Piklist.
@@ -63,9 +66,28 @@ METHOD 3 - FTP
 1. Login to your WordPress account and go to the Plugins page.
 1. Activate the plugin.
 
+== Screenshots ==
+1. Basic output of a listing, showing the title, address, phone number, url, directions link and map.
+2. Adding a new listing is as simple as adding a new post or page.
+3. You can choose between basic and premium listings.
+4. Add the basic details of each listing.
+5. Add the social links that will show in the premium listings.
+6. Add categories, tags and a featured image to each listing.
+7. Set your options and add custom css on the settings page.
+8. Use HTML in the category descriptions and add an image to the category archive pages.
+
+== FAQ ==
+Got questions?  See the [documentation](http://contexta.ca/simple-directory-documentation/ "Simple Directory Documentation").
+
 == Changelog ==
+= 1.1 =
+* You can now choose to enable or disable Google Sitelinks Search Box. 
+* Updates to the readme.txt
+= 0.9.2 =
+Updates to archive pages.  Premium listings are now shown above basic listings.  
 = 0.8 = 
 *Added settings page.
 
 == Upgrade Notice ==
-*There are now some basic settings that can be changed.
+= 1.1 =
+Bug fixes & new options added.

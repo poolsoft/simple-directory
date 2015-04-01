@@ -44,6 +44,20 @@ Order: 30
 		,'no' => 'No'
 		)
 		)); 
+		 piklist ('field', array(
+	'type' => 'select'
+	,'field'=>'simple_dir_enable_sitelinks_search'
+	,'label'=>__('Enable Sitelinks Search in Google Results?','simple-dir')
+	,'value'=> 'yes'
+	,'attributes' => array(
+		'class' => 'text'
+		)
+	,'choices' =>array(
+		'yes' => 'Yes'
+		,'no' => 'No'
+		)
+		)); 
+		
 
  piklist ('field', array(
 	'type' => 'select'

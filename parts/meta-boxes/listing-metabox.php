@@ -4,13 +4,67 @@ Title:Listing Details
 Post Type: listing
 Priority: high
 */
-
+piklist ('field', array(
+	'type' => 'radio'
+	,'field' => 'listing_type'
+	,'label' =>__('Type')
+	,'value' =>'organization'
+	,'attributes' => array(
+		'class' =>'text'
+	)
+	,'choices' => array(
+	'individual' => __('Individual')
+	,'organization' => __('Organization')
+	)
+	));
+	
+piklist ('field', array(
+		'type' => 'text'
+		,'field' =>'listing_ind_org'
+		,'label' => __('Organization')
+		,'attributes' => array(
+			'class' => 'text'
+			)
+		,'conditions' => array(
+		array(
+			'field' => 'listing_type'
+			,'value' =>'individual'
+			))
+		,'sanitize' => array(
+      array(
+        'type' => 'text_field'
+      )
+    )
+			));
+piklist ('field' ,array(
+		'type' =>'text'
+		,'field' =>'listing_ind_title'
+		,'label' =>__('Title')
+		,'attributes'=>array(
+			'class' =>'text'
+			)
+		,'conditions' => array(
+			array(
+				'field' => 'listing_type'
+				,'value' =>'individual'
+				))
+		,'sanitize' => array(
+      array(
+        'type' => 'text_field'
+      )
+    )
+			));
 piklist ('field', array(
 	'type' => 'text',
 	'field' => 'listing_email',
 	'label' => 'Email Address',
 	'attributes' => array(
 		'class' => 'text')
+	,'sanitize' => array(
+      array(
+        'type' => 'email'
+      )
+    )
 ));
 
 piklist ('field', array(
@@ -21,6 +75,11 @@ piklist ('field', array(
 	'attributes' => array(
 		'class' =>'text'
 	)
+	,'sanitize' => array(
+      array(
+        'type' => 'text_field'
+      )
+    )
 ));
 
 piklist ('field', array(
@@ -31,6 +90,11 @@ piklist ('field', array(
 	'attributes' => array(
 		'class' =>'text'
 	)
+	,'sanitize' => array(
+      array(
+        'type' => 'text_field'
+      )
+    )
 )); 
 
 piklist ('field', array(
@@ -41,6 +105,11 @@ piklist ('field', array(
 	'attributes' => array(
 		'class' =>'text'
 	)
+	,'sanitize' => array(
+      array(
+        'type' => 'text_field'
+      )
+    )
 ));
 piklist ('field', array(
 	'type' => 'text',
@@ -49,6 +118,11 @@ piklist ('field', array(
 	'description' =>'The address of your website',
 	'attributes' => array(
 		'class' =>'text')
+		,'sanitize' => array(
+      array(
+        'type' => 'text_field'
+      )
+    )
 ));
 
 piklist ('field', array(
@@ -58,6 +132,11 @@ piklist ('field', array(
 	'description' => 'Street Address',
 	'attributes' => array(
 		'class' => 'text')
+		,'sanitize' => array(
+      array(
+        'type' => 'text_field'
+      )
+    )
 ));
 
 piklist ('field', array(
@@ -67,6 +146,11 @@ piklist ('field', array(
 	'description' => 'City',
 	'attributes' => array(
 		'class' => 'text')
+		,'sanitize' => array(
+      array(
+        'type' => 'text_field'
+      )
+    )
 ));
 
 piklist ('field', array(
@@ -76,6 +160,11 @@ piklist ('field', array(
 	'description' => '',
 	'attributes' => array(
 		'class' => 'text')
+		,'sanitize' => array(
+      array(
+        'type' => 'text_field'
+      )
+    )
 ));
 
 piklist ('field', array(
@@ -85,6 +174,11 @@ piklist ('field', array(
 	'description' => '',
 	'attributes' => array(
 		'class' => 'text')
+		,'sanitize' => array(
+      array(
+        'type' => 'text_field'
+      )
+    )
 ));
 
 piklist ('field', array(
@@ -94,6 +188,11 @@ piklist ('field', array(
 	'description' => '',
 	'attributes' => array(
 		'class' => 'text')
+		,'sanitize' => array(
+      array(
+        'type' => 'text_field'
+      )
+    )
 ));
 
 
