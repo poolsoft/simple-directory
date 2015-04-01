@@ -46,7 +46,7 @@ Order: 30
 		)); 
 		 piklist ('field', array(
 	'type' => 'select'
-	,'field'=>'simple_dir_enable_sitelinks_search'
+	,'field'=>'enable_sitelinks_search'
 	,'label'=>__('Enable Sitelinks Search in Google Results?','simple-dir')
 	,'value'=> 'yes'
 	,'attributes' => array(
@@ -87,7 +87,4 @@ Order: 30
   ));
 
 
-  piklist('shared/code-locater', array(
-    'location' => __FILE__
-    ,'type' => 'Meta Box'
-  ));
+  
