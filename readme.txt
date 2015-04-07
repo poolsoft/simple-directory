@@ -4,7 +4,7 @@ Donate link: http://contexta.ca/simple-directory/
 Tags: directory,custom post type, piklist, wordpress directory, business directory, wordpress business directory plugin, simple directory plugin, post, schema.org, microformat, google maps,shortcode
 Requires at least: 4.0
 Tested up to: 4.1.1
-Stable tag: 1.1.1
+Stable tag: 1.2
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -80,6 +80,8 @@ METHOD 3 - FTP
 Got questions?  See the [documentation](http://contexta.ca/simple-directory-documentation/ "Simple Directory Documentation").
 
 == Changelog ==
+= 1.2 =
+Major bug fix!  Template load error resolved.  Update immediately.
 = 1.1 =
 * You can now choose to enable or disable Google Sitelinks Search Box. 
 * Updates to the readme.txt
@@ -89,6 +91,8 @@ Updates to archive pages.  Premium listings are now shown above basic listings.
 *Added settings page.
 
 == Upgrade Notice ==
+= 1.2 =
+IMPORTANT BUG FIX. Update immediately.
 = 1.1.1 =
 IMPORTANT BUG FIX!
 = 1.1 =
