@@ -1,10 +1,10 @@
 === Simple Directory ===
 Contributors: michaellautman
-Donate link: http://contexta.ca/simple-directory/
+Donate link: http://lautman.ca/simple-directory/
 Tags: directory,custom post type, piklist, wordpress directory, business directory, wordpress business directory plugin, simple directory plugin, post, schema.org, microformat, google maps,shortcode
 Requires at least: 4.0
 Tested up to: 4.1.1
-Stable tag: 1.2
+Stable tag: 1.2.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -45,7 +45,8 @@ Simple directory is built on Foundation by Zurb and Piklist.
 = Recommended Plugins =
 Simple Directory requires [Piklist](http://wordpress.org/plugins/piklist) and works best if you also install [Categories Images](http://wordpress.org/plugins/categories-images) and [Allow HTML In Category Descriptions](http://wordpress.org/plugins/allow-html-in-category-descriptions/).
 
-
+= Want more features? =
+Check out [Simple Directory Pro](http://lautman.ca/simple-directory-pro/).
 == Installation ==
 METHOD 1 - INSTALL FROM PLUGIN BROWSER
 1. From your WordPress admin panel go to Plugins -> Add New
@@ -77,9 +78,11 @@ METHOD 3 - FTP
 8. Use HTML in the category descriptions and add an image to the category archive pages.
 
 == FAQ ==
-Got questions?  See the [documentation](http://contexta.ca/simple-directory-documentation/ "Simple Directory Documentation").
+Got questions?  See the [documentation](http://lautman.ca/simple-directory/simple-directory-documentation/ "Simple Directory Documentation").
 
 == Changelog ==
+= 1.2.1 =
+Minor admin fixes.
 = 1.2 =
 Major bug fix!  Template load error resolved.  Update immediately.
 = 1.1 =
@@ -91,6 +94,8 @@ Updates to archive pages.  Premium listings are now shown above basic listings.
 *Added settings page.
 
 == Upgrade Notice ==
+= 1.2.1 =
+Minor admin fixes.
 = 1.2 =
 IMPORTANT BUG FIX. Update immediately.
 = 1.1.1 =
