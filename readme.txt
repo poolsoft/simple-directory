@@ -4,7 +4,7 @@ Donate link: http://lautman.ca/simple-directory/
 Tags: directory,custom post type, piklist, wordpress directory, business directory, wordpress business directory plugin, simple directory plugin, post, schema.org, microformat, google maps,shortcode
 Requires at least: 4.0
 Tested up to: 4.1.1
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -81,6 +81,8 @@ METHOD 3 - FTP
 Got questions?  See the [documentation](http://lautman.ca/simple-directory/simple-directory-documentation/ "Simple Directory Documentation").
 
 == Changelog ==
+= 1.2.2 =
+Changed listing URL to display 'Website'.
 = 1.2.1 =
 Minor admin fixes.
 = 1.2 =
