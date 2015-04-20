@@ -44,8 +44,7 @@ get_header(); ?>
 			</div>
 			<div class="medium-4 small-12 columns">
 				<?php if ($dir_meta['listing_website_url'][0] !='') {?>
-			<i class="fi-laptop single-listing-icon"></i> <a class="single-listing-meta" href="http://<?php echo $dir_meta['listing_website_url'][0];?>?source=mywestisland" target="_blank" rel="nofollow">
-			<?php echo $dir_meta['listing_website_url'][0];?></a>
+			<i class="fi-laptop single-listing-icon"></i> <a class="single-listing-meta" href="http://<?php echo $dir_meta['listing_website_url'][0];?>" target="_blank" rel="nofollow"><?php _e('Website','simple-dir');?></a>
 				<?php }?>
 			</div>
 			<div class="medium-4 small-12 columns">
@@ -62,16 +61,13 @@ get_header(); ?>
 				$_SESSION['mapPostcode'] = $mapPostcode;
 				?>
 				<i class="fi-marker single-listing-icon"></i> <a class="single-listing-meta" href="https://www.google.com/maps/dir/Current+Location/<?php echo $_SESSION['mapStreet']; ?>+<?php echo $_SESSION['mapCity']; ?>+<?php echo $_SESSION['mapPostcode']; ?>" target="_blank"
-																 >Get Directions</a> <?php }?>
+																 ><?php _e('Get Directions','simple-dir');?></a> <?php }?>
 			</div>
 			</div><!--END PHONE-DIRECTIONS-WEBSITE ROW-->
 				
 			<div class="row"><!--START SOCIAL ROW-->
 			</div><!--END SOCIAL ROW-->
-				<div class="small-12 columns show-for-small">
-					<?php if($dir_meta['listing_street_address'][0] !='') {?>
-			<a class="button" href="/vcard.vcf">Add To Address Book</a><?php }?> 
-				</div>
+				
 			<div class="small-12 columns hide-for-small" id="single-social-block">
 			<?php if($dir_meta['listing_status'][0] =='premium') {?>										
 	<?php if($dir_meta['listing_facebook'][0] !=''){ ?><a href="<?php echo $dir_meta['listing_facebook'][0];?>" target="_blank" rel="nofollow"> <i class="fi-social-facebook icon-medium"></i></a>&nbsp;<?php }?>					

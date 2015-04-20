@@ -3,12 +3,13 @@
  * Plugin Name: Simple Directory Plugin
  * Plugin URI: http://contexta.ca/simple-directory/
  * Description: Creates a very simple business listing post type.
- * Version:1.2.1
+ * Version:1.2.5
  * Author: michaellautman
  * Author URI: http://lautman.ca
  * Plugin Type: Piklist
  * Donate Link: http://contexta.ca/simple-directory/
  * Text Domain: simple-dir
+ * Domain Path: /languages
 
  *
  * This program is free software; you can redistribute it and/or modify it under the terms of the GNU 
@@ -39,7 +40,15 @@ function simple_dir_check_piklist()
    }
   }
 }
-
+add_action( 'plugins_loaded', 'simple_dir_load_textdomain' );
+/**
+ * Load plugin textdomain. 
+ *
+ * @since 1.0.0
+ */
+function simple_dir_load_textdomain() {
+  load_plugin_textdomain( 'simple-dir', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' ); 
+}
  //Create The Listing
 include_once ('includes/create-listing.php');
 //Edit The List Post Page

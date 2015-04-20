@@ -65,9 +65,9 @@ get_header(); ?>
 				<?php if($dir_meta['listing_phone_1'][0] !='') {?><i class="fi-telephone"></i> <?php echo $dir_meta['listing_phone_1'][0];?><?php }?>
 		</span>
 				<span class="show-for-small">
-					<?php if($dir_meta['listing_phone_1'][0] !='') {?><a href="tel:+1<?php echo $dir_meta['listing_phone_1'][0];?>" class="button small radius">CALL NOW</a><?php }?>
+					<?php if($dir_meta['listing_phone_1'][0] !='') {?><a href="tel:+1<?php echo $dir_meta['listing_phone_1'][0];?>" class="button small radius"><?php _e('CALL NOW','simple-dir');?></a><?php }?>
 				</span>
-				<a href="' . esc_url( get_permalink() ) . '" class="button small radius"><i class="fi-list-thumbnails"></i> DETAILS</a>
+				<a href="' . esc_url( get_permalink() ) . '" class="button small radius"><i class="fi-list-thumbnails"></i><?php _e('DETAILS','simple-dir');?></a>
 				
 				</div>
 				</div>
@@ -113,10 +113,10 @@ get_header(); ?>
 				<?php if($dir_meta['listing_phone_1'][0] !='') {?><i class="fi-telephone"></i> <?php echo $dir_meta['listing_phone_1'][0];?><?php }?>
 			</span>
 				<span class="show-for-small">
-					<?php if($dir_meta['listing_phone_1'][0] !='') {?><a href="tel:+1<?php echo $dir_meta['listing_phone_1'][0];?>" class="button small radius">CALL NOW</a><?php }?>
+					<?php if($dir_meta['listing_phone_1'][0] !='') {?><a href="tel:+1<?php echo $dir_meta['listing_phone_1'][0];?>" class="button small radius"><?php _e('CALL NOW','simple-dir');?></a><?php }?>
 					
 				</span>
-				<a href="' . esc_url( get_permalink() ) . '" class="button small radius"><i class="fi-list-thumbnails"></i> DETAILS</a>
+				<a href="' . esc_url( get_permalink() ) . '" class="button small radius"><i class="fi-list-thumbnails"></i> <?php _e('DETAILS','simple-dir');?></a>
 				</div></div>
 					</div>
 				</article><?php }?>
