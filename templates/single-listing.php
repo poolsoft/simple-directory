@@ -44,8 +44,7 @@ get_header(); ?>
 			</div>
 			<div class="medium-4 small-12 columns">
 				<?php if ($dir_meta['listing_website_url'][0] !='') {?>
-			<i class="fi-laptop single-listing-icon"></i> <a class="single-listing-meta" href="http://<?php echo $dir_meta['listing_website_url'][0];?>?source=mywestisland" target="_blank" rel="nofollow">
-			<?php echo $dir_meta['listing_website_url'][0];?></a>
+			<i class="fi-laptop single-listing-icon"></i> <a class="single-listing-meta" href="http://<?php echo $dir_meta['listing_website_url'][0];?>" target="_blank" rel="nofollow">Website</a>
 				<?php }?>
 			</div>
 			<div class="medium-4 small-12 columns">
