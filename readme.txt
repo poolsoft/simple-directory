@@ -4,7 +4,7 @@ Donate link: http://lautman.ca/simple-directory/
 Tags: directory,custom post type, piklist, wordpress directory, business directory, wordpress business directory plugin, simple directory plugin, post, schema.org, microformat, google maps,shortcode
 Requires at least: 4.0
 Tested up to: 4.1.1
-Stable tag: 1.2.3
+Stable tag: 1.2.4
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -41,6 +41,9 @@ Use the included search widget or '[listing_search'] shortcode to add a search b
 
 = Built to Grow = 
 Simple directory is built on Foundation by Zurb and Piklist.
+
+= Translation Ready =
+
 
 = Recommended Plugins =
 Simple Directory requires [Piklist](http://wordpress.org/plugins/piklist) and works best if you also install [Categories Images](http://wordpress.org/plugins/categories-images) and [Allow HTML In Category Descriptions](http://wordpress.org/plugins/allow-html-in-category-descriptions/).
