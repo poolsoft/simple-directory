@@ -3,7 +3,7 @@
  * Plugin Name: Simple Directory Plugin
  * Plugin URI: http://contexta.ca/simple-directory/
  * Description: Creates a very simple business listing post type.
- * Version:1.2.5
+ * Version:1.3
  * Author: michaellautman
  * Author URI: http://lautman.ca
  * Plugin Type: Piklist
@@ -58,8 +58,18 @@ include_once ('includes/sitelinks-searchbox-markup.php');
 //Get The Shortcodes
 include_once ('includes/shortcodes.php');
 //Load The Templates
-/*Load the Appropriate Templates*/
+
 add_filter( 'template_include', 'simple_dir_load_templates' );
+function simple_dir_load_templates( $template )
+{
+ if ( 'listing' === get_post_type() && is_single() )
+ return dirname( __FILE__ ) . '/templates/single-listing.php';
+	if ( 'listing' === get_post_type() && is_archive())
+		return dirname(__FILE__) . '/templates/archive-listing.php';
+		
+ return $template;
+}
+
 //Create The Settings Page
 
  add_filter('piklist_admin_pages', 'simple_directory_setting_pages');
@@ -97,15 +107,6 @@ add_filter( 'template_include', 'simple_dir_load_templates' );
 	return $pages;
 	}
 	
-function simple_dir_load_templates( $template )
-{
- if ( 'listing' === get_post_type() && is_single() )
- return dirname( __FILE__ ) . '/templates/single-listing.php';
-	if ( 'listing' === get_post_type() && is_archive())
-		return dirname(__FILE__) . '/templates/archive-listing.php';
-		
- return $template;
-}
 
 /*
 // If this file is called directly, abort.

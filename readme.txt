@@ -3,8 +3,8 @@ Contributors: michaellautman
 Donate link: http://lautman.ca/simple-directory/
 Tags: directory,custom post type, piklist, wordpress directory, business directory, wordpress business directory plugin, simple directory plugin, post, schema.org, microformat, google maps,shortcode
 Requires at least: 4.0
-Tested up to: 4.1.1
-Stable tag: 1.2.5
+Tested up to: 4.1.2
+Stable tag: 1.3
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -36,6 +36,9 @@ Single-listing.php displays a complete version of the listing including:
 
 The archive-listing.php template displays the listings in a given category showing the address and phone number, with a click to call link on small screens.
 
+= Want more features? =
+Check out [Simple Directory Pro](http://lautman.ca/simple-directory-pro/).
+
 = Powerful Search Features =
 Use the included search widget or '[listing_search'] shortcode to add a search box that will only search listings.
 
@@ -48,8 +51,7 @@ Simple Directory is fully translation ready.
 = Recommended Plugins =
 Simple Directory requires [Piklist](http://wordpress.org/plugins/piklist) and works best if you also install [Categories Images](http://wordpress.org/plugins/categories-images) and [Allow HTML In Category Descriptions](http://wordpress.org/plugins/allow-html-in-category-descriptions/).
 
-= Want more features? =
-Check out [Simple Directory Pro](http://lautman.ca/simple-directory-pro/).
+
 == Installation ==
 METHOD 1 - INSTALL FROM PLUGIN BROWSER
 1. From your WordPress admin panel go to Plugins -> Add New
@@ -84,6 +86,8 @@ METHOD 3 - FTP
 Got questions?  See the [documentation](http://lautman.ca/simple-directory/simple-directory-documentation/ "Simple Directory Documentation").
 
 == Changelog ==
+= 1.3 =
+Fixed listing page 404 error and "Details" link on archive page.
 = 1.2.5 =
 Added POT file and made plugin translation ready.
 = 1.2.3 =
@@ -103,6 +107,8 @@ Updates to archive pages.  Premium listings are now shown above basic listings.
 *Added settings page.
 
 == Upgrade Notice ==
+= 1.3 =
+Fixed listing page 404 error and "Details" link on archive page.
 = 1.2.5 =
 Plugin is now translation ready.
 = 1.2.3 =
