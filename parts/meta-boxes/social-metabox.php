@@ -7,8 +7,8 @@ piklist ('field', array(
 	'type'=> 'text',
 	'scope' => 'post_meta',
 	'field' => 'listing_gplus',
-	'label' => 'URL of your Google + Page',
-	'attributes' => array(
+	'label' => __('URL of your Google + Page','simple-dir')
+	,'attributes' => array(
 		'class' => 'text')
 		,'sanitize' => array(
       array(
@@ -22,8 +22,8 @@ piklist ('field', array(
 	'type'=> 'text',
 	'scope' => 'post_meta',
 	'field' => 'listing_facebook',
-	'label' => 'URL of your Facebook page',
-	'attributes' => array(
+	'label' => __('URL of your Facebook page','simple-dir')
+	,'attributes' => array(
 		'class' => 'text')
 		,'sanitize' => array(
       array(
@@ -37,9 +37,9 @@ piklist ('field', array(
 	'type'=> 'text',
 	'scope' => 'post_meta',
 	'field' => 'listing_twitter',
-	'label' => 'Your Twitter Username',
-	'description' => 'Your username without the @',
-	'attributes' => array(
+	'label' => __('Your Twitter Username','simple-dir')
+	,'description' => __('Your username without the @','simple-dir')
+	,'attributes' => array(
 		'class' => 'text')
 		,'sanitize' => array(
       array(
@@ -53,8 +53,8 @@ piklist ('field', array(
 	'type'=> 'text',
 	'scope' => 'post_meta',
 	'field' => 'listing_linkedin',
-	'label' => 'URL of your LinkedIn Profile',
-	'attributes' => array(
+	'label' => __('URL of your LinkedIn Profile','simple-dir')
+	,'attributes' => array(
 		'class' => 'text')
 		,'sanitize' => array(
       array(
@@ -68,8 +68,8 @@ piklist ('field', array(
 	'type'=> 'text',
 	'scope' => 'post_meta',
 	'field' => 'listing_instagram',
-	'label' => 'Your Instagram Username',
-	'attributes' => array(
+	'label' => __('Your Instagram Username','simple-dir')
+	,'attributes' => array(
 		'class' => 'text')
 		,'sanitize' => array(
       array(
@@ -82,8 +82,8 @@ piklist ('field', array(
 	'type'=> 'text',
 	'scope' => 'post_meta',
 	'field' => 'listing_youtube',
-	'label' => 'URL of your YouTube Channel',
-	'attributes' => array(
+	'label' => __('URL of your YouTube Channel','simple-dir')
+	,'attributes' => array(
 		'class' => 'text')
 		,'sanitize' => array(
       array(
@@ -97,8 +97,8 @@ piklist ('field', array(
 	'type'=> 'text',
 	'scope' => 'post_meta',
 	'field' => 'listing_rss',
-	'label' => 'URL of your RSS Feed',
-	'attributes' => array(
+	'label' => __('URL of your RSS Feed','simple-dir')
+	,'attributes' => array(
 		'class' => 'text')
 		,'sanitize' => array(
       array(
@@ -112,8 +112,8 @@ piklist ('field', array(
 	'type'=> 'text',
 	'scope' => 'post_meta',
 	'field' => 'listing_pinterest',
-	'label' => 'URL of your Pinterest page',
-	'attributes' => array(
+	'label' => __('URL of your Pinterest page','simple-dir')
+	,'attributes' => array(
 		'class' => 'text')
 		,'sanitize' => array(
       array(
