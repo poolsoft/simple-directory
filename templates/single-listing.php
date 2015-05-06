@@ -11,13 +11,27 @@ get_header(); ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>> <!--ARTICLE-->
 	<?php $dir_meta = get_post_meta($post->ID);				?>
 		<div class="small-12 columns"><!--START CONTENT WRAP COLUMN-->
-		<div itemscope itemtype="http://schema.org/LocalBusiness"><!--START LOCAL BUSINESS INFO-->
+		<?php if(isset($dir_meta['listing_type'][0]) && $dir_meta['listing_type'][0] == 'organization') {
+		echo '<div itemscope itemtype="http://schema.org/LocalBusiness">';
+		} ?>
+		<?php if(isset($dir_meta['listing_type'][0]) && $dir_meta['listing_type'][0] == 'individual') {
+			echo '<div itemscope itemtype ="http://schema.org/Person">';
+		} ?>
+		<!--START LOCAL BUSINESS INFO-->
 			<div class="row"><!--START HEADER AREA-->
 			<div class="medium-8  columns"><!--TITLE-LOGO-CONTACT-->
-			<div class="row"><!--TITLE-LOGO ROW-->
+			<div class="row"><!--TITLE-LOGO ROW--> 
 		<div class="medium-8 columns">
 		
 		<?php the_title( '<span itemprop="name"><h1 class="single-listing-title">', '</h1><span>' ); ?>
+		<?php if(isset($dir_meta['listing_type'][0]) && $dir_meta['listing_type'][0] == 'individual') {
+			if(isset($dir_meta['listing_ind_title'][0])){
+			echo'<span itemprop="jobTitle">' . $dir_meta['listing_ind_title'][0] .'</span><br/>';
+			}
+			if(isset($dir_meta['listing_ind_org'][0])) { 
+			echo '<span itemprop="worksFor"><strong>' .  $dir_meta['listing_ind_org'][0] . '</strong></span>' ;
+			}
+		}?>
 			</div>
 				<div class="medium-4 columns single-logo" >
 							

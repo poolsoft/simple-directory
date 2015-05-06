@@ -1,13 +1,13 @@
 <?php
 /**
  * Plugin Name: Simple Directory Plugin
- * Plugin URI: http://contexta.ca/simple-directory/
+ * Plugin URI: http://lautman.ca/simple-directory/
  * Description: Creates a very simple business listing post type.
- * Version:1.3.1
+ * Version:1.3.2
  * Author: michaellautman
  * Author URI: http://lautman.ca
  * Plugin Type: Piklist
- * Donate Link: http://contexta.ca/simple-directory/
+ * Donate Link: http://lautman.ca/simple-directory/
  * Text Domain: simple-dir
  * Domain Path: /languages
 
