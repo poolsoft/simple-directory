@@ -4,12 +4,13 @@ add_filter('piklist_post_types', 'listing_post_type');
  function listing_post_type($post_types){ 
  $post_types['listing'] = array(
 	  'labels' =>piklist('post_type_labels','Listings')
-     ,'title' => __('Simple Business Listings')
+     ,'title' => __('Simple Business Listings','simple-dir')
  	 ,'public' => true
 	 ,'admin_body_class' => array (
         'listing-admin'
              )
  	 ,'has_archive' => 'listings'
+	 ,'can_export' => 'true'
 	 ,'capability_type' => 'post'
 	 ,'taxonomies' =>array('post_tag')
 	 ,'rewrite' => array(

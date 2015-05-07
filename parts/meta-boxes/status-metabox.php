@@ -16,8 +16,8 @@ piklist('field', array(
 		),
 	'value' => 'basic',
 	'choices' =>array(
-		'basic' =>'Basic',
-		'premium' => 'Premium'
+		'basic' =>__('Basic','simple-dir')
+		,'premium' => __('Premium','simple-dir')
 		)
 		));
 	
