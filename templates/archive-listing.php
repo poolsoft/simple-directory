@@ -49,6 +49,14 @@ get_header(); ?>
 <div class="small-7 columns">
 				
 <?php the_title( '<span itemprop="name"><h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a> &nbsp;<i class="fi-star"></i></h3><span>' ); ?>
+	<?php if(isset($dir_meta['listing_type'][0]) && $dir_meta['listing_type'][0] == 'individual'){
+			if(isset($dir_meta['listing_ind_title'][0])){
+				echo '<span>'.$dir_meta['listing_ind_title'][0] .'</span><br/>';
+			}									 
+			if(isset($dir_meta['listing_ind_org'][0])){
+				echo '<span>'. $dir_meta['listing_ind_org'][0] .'</span>';
+			}									   
+											   }?>
 <?php if($dir_meta['listing_street_address'][0] !='') {?>
 				<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
 				<span itemprop="streetAddress"><?php echo $dir_meta['listing_street_address'][0]; ?></span>, 

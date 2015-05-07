@@ -4,7 +4,7 @@ Donate link: http://lautman.ca/simple-directory/
 Tags: directory,custom post type, piklist, wordpress directory, business directory, wordpress business directory plugin, simple directory plugin, post, schema.org, microformat, google maps,shortcode
 Requires at least: 4.0
 Tested up to: 4.2.1
-Stable tag: 1.3.2
+Stable tag: 1.3.3
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -87,6 +87,8 @@ METHOD 3 - FTP
 Got questions?  See the [documentation](http://lautman.ca/simple-directory/simple-directory-documentation/ "Simple Directory Documentation").
 
 == Changelog ==
+= 1.3.3 =
+ Listing templates improved to show job title and organization for individuals.
 = 1.3.1 =
 Improved listing archive pages.  Listings are now sorted alphabetically and both premium and basic listings show correctly.
 = 1.3 =
@@ -110,6 +112,8 @@ Updates to archive pages.  Premium listings are now shown above basic listings.
 *Added settings page.
 
 == Upgrade Notice ==
+= 1.3.3 =
+Listing templates now show job titles and organization for individuals.
 = 1.3.1 = 
 Improvements to archive pages.  Premium and basic listings are displayed properly.
 = 1.3 =
