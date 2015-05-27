@@ -3,7 +3,7 @@
  * Plugin Name: Simple Directory Plugin
  * Plugin URI: http://lautman.ca/simple-directory/
  * Description: Creates a very simple business listing post type.
- * Version:1.3.3
+ * Version:1.4.0
  * Author: michaellautman
  * Author URI: http://lautman.ca
  * Plugin Type: Piklist
@@ -58,22 +58,23 @@ include_once ('includes/sitelinks-searchbox-markup.php');
 //Get The Shortcodes
 include_once ('includes/shortcodes.php');
 //Load The Templates
-
+//include_once('includes/load-templates.php');
 add_filter( 'template_include', 'simple_dir_load_templates' );
 function simple_dir_load_templates( $template )
 {
  if ( 'listing' === get_post_type() && is_single() )
- return dirname( __FILE__ ) . '/templates/single-listing.php';
+ return dirname( __FILE__ ) . 'templates/single-listing.php';
 	if ( 'listing' === get_post_type() && is_archive())
-		return dirname(__FILE__) . '/templates/archive-listing.php';
+		return dirname(__FILE__) . 'templates/archive-listing.php';
 		
  return $template;
 }
+
 //Customize the Query
 include_once ('includes/query.php');
 //Create The Settings Page
-
- add_filter('piklist_admin_pages', 'simple_directory_setting_pages');
+//include_once('includes/settings.php');
+  add_filter('piklist_admin_pages', 'simple_directory_setting_pages');
   function simple_directory_setting_pages($pages)
   {
      $pages[] = array(
@@ -91,7 +92,8 @@ include_once ('includes/query.php');
     );
 		return $pages;
   }
-  add_filter('piklist_admin_pages','simple_directory_guide_page');
+
+ add_filter('piklist_admin_pages','simple_directory_guide_page');
   function simple_directory_guide_page($pages){
  
 
@@ -107,66 +109,37 @@ include_once ('includes/query.php');
     );
 	return $pages;
 	}
+//Output the Settings
+include_once('includes/settings-output.php');
 	
+//Load Geolocation
+//include_once('includes/geo/geo.php');
+/*function simple_dir_geo(){
+	wp_register_script ('geo', plugins_url('simple-directory/includes/geo/geo.js'),false, false, true);
+	wp_enqueue_script('geo');
+}
+add_action ('wp_enqueue_scripts','simple_dir_geo');
+*/
 
-/*
-// If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
-	die;
-} // end if
-
-require_once( plugin_dir_path( __FILE__ ) . 'class-page-template.php' );
-add_action( 'plugins_loaded', array( 'Page_Template_Plugin', 'get_instance' ) );
- */
 // Register Style
 function simple_directory_styles() {
 
 	wp_register_style ('simple-directory-normalize', plugins_url('simple-directory/css/normalize.css', dirname(__FILE__)), false, false);
 	wp_enqueue_style ('simple-directory-normalize');
+	$use_foundation = $directory_settings['simple_directory_disable_foundation'] == 'no';
+  if ($use_foundation) {
 	wp_register_style( 'simple-directory-foundation', plugins_url('simple-directory/css/foundation.css', dirname(__FILE__)), false, false );
-	wp_enqueue_style( 'simple-directory-foundation' );
+		wp_enqueue_style( 'simple-directory-foundation' );
+  }
 	wp_register_style('simple-directory-ficons', plugins_url('simple-directory/foundation-icons/foundation-icons.css', dirname(__FILE__)),false, false);
 	wp_enqueue_style ('simple-directory-ficons');
 	wp_register_style('simple-directory-style', plugins_url('simple-directory/style.css', dirname(__FILE__)),false, false);
 	wp_enqueue_style('simple-directory-style');
 }
 
-
-// Hook into the 'wp_enqueue_scripts' action
-
 add_action( 'wp_enqueue_scripts', 'simple_directory_styles');
 
-//Load Admin Styles
 
-//  function simple_directory_admin_styles() {
- 
-//      wp_enqueue_style( 'simple-directory-foundation' );
-//  wp_enqueue_style( 'simple-directory-ficons' );
-//   wp_enqueue_style( 'simple-directory-style' );
-//   }
-//Inject Custom CSS
-if ('listing' === get_post_type()){
-add_action( 'wp_head', 'simple_directory_custom_styles' );
-}
-function simple_directory_custom_styles() {
-
-  echo '<style type="text/css" id="sdir-custom-css">' . "\n";
- $directory_settings = get_option('simple_directory_settings');
-	$custom_css = $directory_settings['listing_custom_css'];
-	echo $custom_css;
-  echo '</style>' . "\n";
-
-}
-
-//Footer Credit Link
-function simple_directory_credit_link(){
-	echo '<p>Simple Directory Plugin by <a href="http://mywestisland.info" target="_blank" title="West Island Business Directory">MyWestIsland.INFO: The West Island Business Directory</a>.</p>';
-}
-$directory_settings = get_option('simple_directory_settings');
-$credit_link = $directory_settings['show_credit_link'];
-if ($credit_link =='yes'){
-	add_action('wp_footer','simple_directory_credit_link');
-}
 /*Get Required/Recommended Plugins*/
 require_once 'class-simple-dir-plugin-activation.php';
 
