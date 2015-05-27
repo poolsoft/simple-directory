@@ -3,7 +3,7 @@
  * Plugin Name: Simple Directory Plugin
  * Plugin URI: http://lautman.ca/simple-directory/
  * Description: Creates a very simple business listing post type.
- * Version:1.4.0
+ * Version:1.4.1
  * Author: michaellautman
  * Author URI: http://lautman.ca
  * Plugin Type: Piklist
@@ -126,6 +126,7 @@ function simple_directory_styles() {
 
 	wp_register_style ('simple-directory-normalize', plugins_url('simple-directory/css/normalize.css', dirname(__FILE__)), false, false);
 	wp_enqueue_style ('simple-directory-normalize');
+	$directory_settings = get_option('simple_directory_settings');
 	$use_foundation = $directory_settings['simple_directory_disable_foundation'] == 'no';
   if ($use_foundation) {
 	wp_register_style( 'simple-directory-foundation', plugins_url('simple-directory/css/foundation.css', dirname(__FILE__)), false, false );
