@@ -3,14 +3,15 @@ Contributors: michaellautman
 Donate link: http://lautman.ca/simple-directory/
 Tags: directory,custom post type, piklist, wordpress directory, business directory, wordpress business directory plugin, simple directory plugin, post, schema.org, microformat, google maps,shortcode
 Requires at least: 4.0
-Tested up to: 4.1.2
-Stable tag: 1.3
+Tested up to: 4.2.2
+Stable tag: 1.4.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Quickly and easily create a powerful directory on your site. Great for local directories, address books, Yellow Pages style business listings - and much more.
+Quickly and easily create a powerful directory on your site. Build local directories, address books, Yellow Pages style business listings and more!
 
 == Description ==
+Get more features with [Simple Directory Pro](http://lautman.ca/simple-directory-pro/).
 
 Simple Directory is the hottest new directory plugin for WordPress.  
 Quickly and easily create a powerful directory on your site. Great for local directories, address books, Yellow Pages style business listings - and much more.
@@ -82,10 +83,16 @@ METHOD 3 - FTP
 7. Set your options and add custom css on the settings page.
 8. Use HTML in the category descriptions and add an image to the category archive pages.
 
-== FAQ ==
+== Frequently Asked Questions ==
 Got questions?  See the [documentation](http://lautman.ca/simple-directory/simple-directory-documentation/ "Simple Directory Documentation").
 
 == Changelog ==
+= 1.5 =
+Updated Piklist Checker, users can now disable the Foundation CSS.
+= 1.3.3 =
+ Listing templates improved to show job title and organization for individuals.
+= 1.3.1 =
+Improved listing archive pages.  Listings are now sorted alphabetically and both premium and basic listings show correctly.
 = 1.3 =
 Fixed listing page 404 error and "Details" link on archive page.
 = 1.2.5 =
@@ -107,6 +114,10 @@ Updates to archive pages.  Premium listings are now shown above basic listings.
 *Added settings page.
 
 == Upgrade Notice ==
+= 1.3.3 =
+Listing templates now show job titles and organization for individuals.
+= 1.3.1 = 
+Improvements to archive pages.  Premium and basic listings are displayed properly.
 = 1.3 =
 Fixed listing page 404 error and "Details" link on archive page.
 = 1.2.5 =
