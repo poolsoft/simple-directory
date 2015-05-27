@@ -1,6 +1,6 @@
 <?php
 /**
- * The PRO template for displaying Category pages
+ * The template for displaying Category pages
  *
  * @link http://codex.wordpress.org/Template_Hierarchy
  *
@@ -33,101 +33,103 @@ get_header(); ?>
 						printf( '<div class="taxonomy-description">%s</div>', $term_description );
 					endif;
 				?>
-	
+	</div>
 			</header><!-- .archive-header -->
-<!--START THE TEST PREMIUM LOOP -->
-	
-			<?php 
-				
-					// Start the Loop.
-// WP_Query arguments
 
-					while ( have_posts() ) : the_post();{?>
-					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-		<?php $dir_meta = get_post_meta($post->ID);				?>
-		<?php if ($dir_meta['listing_status'][0] == 'premium') {?>				
-		<div class="row" >
-		<div class="small-12 columns archive-listing-container">
+<div>
+	<?php while ( have_posts() ) : the_post();{?>
+<?php $dir_meta = get_post_meta($post->ID);	
+											   if (isset($dir_meta['listing_status'][0]) && $dir_meta['listing_status'][0] == 'premium') {?>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<div class="row">
+		<?php if(has_post_thumbnail()){?>
 		<div class="medium-2 columns hide-for-small">
 		<?php the_post_thumbnail(); ?>
+		</div><?php }?>
+<div class="small-7 columns">
+				
+<?php the_title( '<span itemprop="name"><h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a> &nbsp;<i class="fi-star"></i></h3><span>' ); ?>
+	<?php if(isset($dir_meta['listing_type'][0]) && $dir_meta['listing_type'][0] == 'individual'){
+			if(isset($dir_meta['listing_ind_title'][0])){
+				echo '<span>'.$dir_meta['listing_ind_title'][0] .'</span><br/>';
+			}									 
+			if(isset($dir_meta['listing_ind_org'][0])){
+				echo '<span>'. $dir_meta['listing_ind_org'][0] .'</span>';
+			}									   
+											   }?>
+<?php if($dir_meta['listing_street_address'][0] !='') {?>
+				<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+				<span itemprop="streetAddress"><?php echo $dir_meta['listing_street_address'][0]; ?></span>, 
+				<span itemprop="addressLocality"><?php echo $dir_meta['listing_city'][0];?></span>,
+				<span itemprop="addressRegion"><?php echo $dir_meta['listing_state'][0];?></span>
+				<span itemprop="postalCode"><?php echo $dir_meta['listing_postalcode'][0];?></span>
+					</div> <!--END POSTAL ADDRESS--><?php } ?>	
+
+	</div>
+
+	<div class="small-4 medium-3 columns">
+		<div class="row">
+			<a href="<?php echo esc_url(get_permalink());?>" class="single-listing-meta"><i class="fi-list-thumbnails"></i> <?php _e('DETAILS','simple-dir');?></a>
 		</div>
-			<div class="small-7 columns">
-		<?php the_title( '<span itemprop="name"><h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a> &nbsp;<i class="fi-star"></i></h3><span>' ); ?>
-			
-				<?php if($dir_meta['listing_street_address'][0] !='') {?>
-				<?php echo $dir_meta['listing_street_address'][0];?>, <?php echo $dir_meta['listing_city'][0];?>, <?php echo $dir_meta['listing_postalcode'][0];?><br/>
-				<?php echo get_the_term_list($post->ID,'listing_category','','&nbsp;','');?>
+		<div class="row hide-for-small-only">
+		
+		<?php if($dir_meta['listing_phone_1'][0] !='') {?>	
+			<i class="fi-telephone single-listing-icon"></i> <a class="single-listing-meta" href="tel:+1<?php echo $dir_meta['listing_phone_1'][0];?>">
+						<?php echo $dir_meta['listing_phone_1'][0];?></a>
 				<?php }?>
-				
-					</div>
-			<div class="medium-3 small-4 columns">
-				<span class="hide-for-small">								
-				<?php if($dir_meta['listing_phone_1'][0] !='') {?><i class="fi-telephone"></i> <?php echo $dir_meta['listing_phone_1'][0];?><?php }?>
-		</span>
-				<span class="show-for-small">
-					<?php if($dir_meta['listing_phone_1'][0] !='') {?><a href="tel:+1<?php echo $dir_meta['listing_phone_1'][0];?>" class="button small radius"><?php _e('CALL NOW','simple-dir');?></a><?php }?>
-				</span>
-				<a href="<?php echo esc_url( get_permalink() );?>" class="button small radius"><i class="fi-list-thumbnails"></i><?php _e('DETAILS','simple-dir');?></a>
-				
-				</div>
-				</div>
-					</div>
-					</article><?php } 
-				?>
-				
-					<div class="row row-padded">
-					</div>
-					<?php }
-
+		</div>
+		<div class="row show-for-small-only">
+			<?php if($dir_meta['listing_phone_1'][0] !='') {?>	
+			 <a class=" button small" href="tel:<?php echo $dir_meta['listing_phone_1'][0];?>">
+						<i class="fi-telephone "></i> <?php _e('CALL NOW','simple-dir');?></a>
+				<?php }?>
+		</div>
+		</div>
+	</div> 	
+		</article>
+	<hr class="simple-break">
+<?php }
 					
+											
+	 if (isset($dir_meta['listing_status'][0]) && $dir_meta['listing_status'][0] == 'basic') {?>
+	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>	
+	<div class="row">
+		<div class="small-8 medium-9 columns">
+			
+	
+<?php the_title( '<span itemprop="name"><h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3><span>' ); ?>
+	<?php if($dir_meta['listing_street_address'][0] !='') {?>
+				<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+				<span itemprop="streetAddress"><?php echo $dir_meta['listing_street_address'][0]; ?></span>, 
+				<span itemprop="addressLocality"><?php echo $dir_meta['listing_city'][0];?></span>,
+				<span itemprop="addressRegion"><?php echo $dir_meta['listing_state'][0];?></span>
+				<span itemprop="postalCode"><?php echo $dir_meta['listing_postalcode'][0];?></span>
+					</div> <!--END POSTAL ADDRESS--><?php } ?>	
 
-					endwhile;
+	</div>
+		
+		<div class="small-4 medium-3 columns">
+			<div class="row">
+			<a href="<?php echo esc_url(get_permalink());?>" class="single-listing-meta"><i class="fi-list-thumbnails"></i> <?php _e('DETAILS','simple-dir');?></a>
+		</div>
+		</div>
+	</div></article>
+	<hr>
+		<?php ?>
+<?php }?>
+											   <?php } 
+	endwhile;
 					// Previous/next page navigation.
 					next_posts_link('Previous Listings');
 					previous_posts_link('Next Listings');
 
 				else :
 				
-				endif;
-				wp_reset_postdata();
-			?>
-		</div><!-- #content -->
-		<?php rewind_posts(); ?>
-	
-					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-		<?php $dir_meta = get_post_meta($post->ID);				?>
-		<?php if ($dir_meta['listing_status'][0] =='basic') {?>
-				<div class="row" >
-				<div class="small-12 columns archive-listing-container">
-			<div class="small-8 columns">
-		<?php the_title( '<span itemprop="name"><h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3><span>' ); ?>
-			
-				<?php if($dir_meta['listing_street_address'][0] !='') {?>
-				<?php echo $dir_meta['listing_street_address'][0];?>, <?php echo $dir_meta['listing_city'][0];?>, <?php echo $dir_meta['listing_postalcode'][0];?><br/>
-				<?php echo get_the_term_list($post->ID,'listing_category','','&nbsp;','');?>
-				<?php }?>
+				endif;?>
 				
-					</div>
-			<div class="small-4 columns">
-				<span class="hide-for-small">	
-				<?php if($dir_meta['listing_phone_1'][0] !='') {?><i class="fi-telephone"></i> <?php echo $dir_meta['listing_phone_1'][0];?><?php }?>
-			</span>
-				<span class="show-for-small">
-					<?php if($dir_meta['listing_phone_1'][0] !='') {?><a href="tel:+1<?php echo $dir_meta['listing_phone_1'][0];?>" class="button small radius"><?php _e('CALL NOW','simple-dir');?></a><?php }?>
-					
-				</span>
-				<a href="<?php esc_url( get_permalink() ) ?>" class="button small radius"><i class="fi-list-thumbnails"></i> <?php _e('DETAILS','simple-dir');?></a>
-				</div></div>
-					</div>
-				</article><?php }?>
-	</section><!-- #primary -->
-		
-<?php
-$directory_settings = get_option('simple_directory_settings');
- $show_sidebar = $directory_settings['archive_listing_show_sidebar'][0];
- if ($show_sidebar == 'yes')
- echo get_sidebar();
- ?>
+			</div>
+ </div>
+ </section>
  </div>
  <?php
 
