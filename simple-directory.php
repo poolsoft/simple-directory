@@ -3,7 +3,7 @@
  * Plugin Name: Simple Directory Plugin
  * Plugin URI: http://lautman.ca/simple-directory/
  * Description: Creates a very simple business listing post type.
- * Version:1.4.1
+ * Version:1.4.2
  * Author: michaellautman
  * Author URI: http://lautman.ca
  * Plugin Type: Piklist
@@ -110,7 +110,7 @@ include_once ('includes/query.php');
 	return $pages;
 	}
 //Output the Settings
-include_once('includes/settings-output.php');
+include_once ('includes/settings-output.php');
 	
 //Load Geolocation
 //include_once('includes/geo/geo.php');
