@@ -1,13 +1,12 @@
 <?php
 /**
  * Plugin Name: Simple Directory Plugin
- * Plugin URI: http://lautman.ca/simple-directory/
+ * Plugin URI: http://contexta.ca/simple-directory/
  * Description: Creates a very simple business listing post type.
- * Version:1.4.2
+ * Version:1.4.4
  * Author: michaellautman
- * Author URI: http://lautman.ca
+ * Author URI: http://contexta.ca
  * Plugin Type: Piklist
- * Donate Link: http://lautman.ca/simple-directory/
  * Text Domain: simple-dir
  * Domain Path: /languages
 
@@ -63,9 +62,9 @@ add_filter( 'template_include', 'simple_dir_load_templates' );
 function simple_dir_load_templates( $template )
 {
  if ( 'listing' === get_post_type() && is_single() )
- return dirname( __FILE__ ) . 'templates/single-listing.php';
+ return dirname( __FILE__ ) . '/templates/single-listing.php';
 	if ( 'listing' === get_post_type() && is_archive())
-		return dirname(__FILE__) . 'templates/archive-listing.php';
+		return dirname(__FILE__) . '/templates/archive-listing.php';
 		
  return $template;
 }
@@ -111,26 +110,20 @@ include_once ('includes/query.php');
 	}
 //Output the Settings
 include_once ('includes/settings-output.php');
-	
-//Load Geolocation
-//include_once('includes/geo/geo.php');
-/*function simple_dir_geo(){
-	wp_register_script ('geo', plugins_url('simple-directory/includes/geo/geo.js'),false, false, true);
-	wp_enqueue_script('geo');
-}
-add_action ('wp_enqueue_scripts','simple_dir_geo');
-*/
+
 
 // Register Style
 function simple_directory_styles() {
 
-	wp_register_style ('simple-directory-normalize', plugins_url('simple-directory/css/normalize.css', dirname(__FILE__)), false, false);
-	wp_enqueue_style ('simple-directory-normalize');
+	wp_register_style ('normalize', plugins_url('simple-directory/css/normalize.css', dirname(__FILE__)), false, false);
+	wp_enqueue_style ('normalize');
 	$directory_settings = get_option('simple_directory_settings');
-	$use_foundation = $directory_settings['simple_directory_disable_foundation'] == 'no';
-  if ($use_foundation) {
-	wp_register_style( 'simple-directory-foundation', plugins_url('simple-directory/css/foundation.css', dirname(__FILE__)), false, false );
-		wp_enqueue_style( 'simple-directory-foundation' );
+	$disable_foundation = $directory_settings['simple_directory_disable_foundation'] == 'yes';
+ if ($disable_foundation) {
+ }
+ else{
+	wp_register_style( 'foundation', plugins_url('simple-directory/css/components.min.css', dirname(__FILE__)), false, false );
+		wp_enqueue_style( 'foundation' );
   }
 	wp_register_style('simple-directory-ficons', plugins_url('simple-directory/foundation-icons/foundation-icons.css', dirname(__FILE__)),false, false);
 	wp_enqueue_style ('simple-directory-ficons');

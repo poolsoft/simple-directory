@@ -1,17 +1,17 @@
 === Simple Directory ===
 Contributors: michaellautman
-Donate link: http://lautman.ca/simple-directory/
+Donate link: http://contexta.ca/simple-directory/
 Tags: directory,custom post type, piklist, wordpress directory, business directory, wordpress business directory plugin, simple directory plugin, post, schema.org, microformat, google maps,shortcode
 Requires at least: 4.0
 Tested up to: 4.2.2
-Stable tag: 1.4.2
+Stable tag: 1.4.4
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 Quickly and easily create a powerful directory on your site. Build local directories, address books, Yellow Pages style business listings and more!
 
 == Description ==
-Get more features with [Simple Directory Pro](http://lautman.ca/simple-directory-pro/).
+Get more features with [Simple Directory Pro](http://contexta.ca/simple-directory-pro/).
 
 Simple Directory is the hottest new directory plugin for WordPress.  
 Quickly and easily create a powerful directory on your site. Great for local directories, address books, Yellow Pages style business listings - and much more.
@@ -87,6 +87,10 @@ METHOD 3 - FTP
 Got questions?  See the [documentation](http://lautman.ca/simple-directory/simple-directory-documentation/ "Simple Directory Documentation").
 
 == Changelog ==
+= 1.4.4 =
+Fixed problems with ability to disable Foundation CSS.
+= 1.4.3 =
+Removed unnecessary Foundation components to improve performance.
 = 1.4.2 =
 Updated Piklist Checker, users can now disable the Foundation CSS.  Settings output file included.
 = 1.3.3 =
