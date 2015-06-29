@@ -4,14 +4,14 @@ Donate link: http://contexta.ca/simple-directory/
 Tags: directory,custom post type, piklist, wordpress directory, business directory, wordpress business directory plugin, simple directory plugin, post, schema.org, microformat, google maps,shortcode
 Requires at least: 4.0
 Tested up to: 4.2.2
-Stable tag: 1.4.4
+Stable tag: 1.4.5
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 Quickly and easily create a powerful directory on your site. Build local directories, address books, Yellow Pages style business listings and more!
 
 == Description ==
-Get more features with [Simple Directory Pro](http://contexta.ca/simple-directory-pro/).
+Get more features with [Simple Directory Pro](http://codecanyon.net/item/simple-directory-pro/11869464?ref=michaellautman).
 
 Simple Directory is the hottest new directory plugin for WordPress.  
 Quickly and easily create a powerful directory on your site. Great for local directories, address books, Yellow Pages style business listings - and much more.
@@ -38,7 +38,11 @@ Single-listing.php displays a complete version of the listing including:
 The archive-listing.php template displays the listings in a given category showing the address and phone number, with a click to call link on small screens.
 
 = Want more features? =
-Check out [Simple Directory Pro](http://lautman.ca/simple-directory-pro/).
+[Simple Directory Pro](http://codecanyon.net/item/simple-directory-pro/11869464?ref=michaellautman) includes a growing list of additional features including:
+* Show Payment Methods
+* Show Business Hours
+* "Add to Contacts" link
+* More customization options
 
 = Powerful Search Features =
 Use the included search widget or '[listing_search'] shortcode to add a search box that will only search listings.
@@ -84,7 +88,7 @@ METHOD 3 - FTP
 8. Use HTML in the category descriptions and add an image to the category archive pages.
 
 == Frequently Asked Questions ==
-Got questions?  See the [documentation](http://lautman.ca/simple-directory/simple-directory-documentation/ "Simple Directory Documentation").
+Got questions?  See the [documentation](http://contexta.ca/simple-directory/simple-directory-documentation/ "Simple Directory Documentation").
 
 == Changelog ==
 = 1.4.4 =
