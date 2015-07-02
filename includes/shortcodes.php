@@ -3,13 +3,12 @@
 //Search Box Shortcode
 function simple_dir_search_shortcode( $form ) {
 
-    $form =' <form role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>">
-	<label class="screen-reader-text hidden-for-large" for="s">'. _x( 'Search for:', 'label' ). '</label>
-		<input type="search" class="search-field" placeholder="'.__( 'Search', 'placeholder' ) .'" value="' .get_search_query().'" name="s" title=" '.__( 'Search for:', 'label' ) .'" />
-		
-	<input type="hidden" value="listing" name="post_type" id="post_type" />
-	<input type="submit" class="search-submit" value="'.esc_attr__( 'Search', 'submit button' ).'" />
-</form>';
+     $form = '<form role="search" method="get" id="searchform" action="' . home_url( '/' ) . '" >
+    <label class="assistive-text" for="s">' . __('Search for:') . '</label>
+    <input type="search" placeholder="'.__("Enter term...").'" value="' . get_search_query() . '" name="s" id="s" />
+	<input type="hidden" name="post_type" value="listings" />
+    <input type="submit" id="searchsubmit" value="Search" />
+    </form>';
 
     return $form;
 }

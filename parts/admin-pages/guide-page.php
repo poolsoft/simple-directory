@@ -84,7 +84,8 @@ text-decoration:underline;
 <h2><?php _e('Templates','simple-dir');?></h2>
 <p><?php _e('The plugin comes with two templated for displaying the listings: single-listing.php and archive-listing.php.  Both of these files are found in the /templates/ directory.  You can customize the templates, but any changes will be overwritten when you upgrade.','simple-dir');?></p>
 <h2><?php _e('Support','simple-dir');?></h2>
-<p><?php _e('Looking for support? Got questions?','simple-dir');?>  <a href="http://contexta.ca/forums/" target="_blank"><?php _e('Visit the support forum to get answers','simple-dir');?></a>.  <?php _e('Want more?','simple-dir');?>  <a href="http://contexta.ca/simple-directory" target="_blank"><?php _e('Upgrage to Pro','simple-dir');?></a>.
+<p><?php _e('Looking for support? Got questions?','simple-dir');?>  <a href="https://wordpress.org/support/plugin/simple-directory" target="_blank"><?php _e('Visit the support forum to get answers','simple-dir');?></a>.  <?php _e('Want more?','simple-dir');?>  <a href="http://codecanyon.net/item/simple-directory-pro/11869464man/portfolio?ref=michaellautman" target="_blank"><?php _e('Upgrage to Pro','simple-dir');?></a>.</p>
+<h2>Using Simple Directory</h2>
 </div>
 <div class="col-4 center">
 <div class="box white-bg">
@@ -92,7 +93,12 @@ text-decoration:underline;
 <h2><?php _e('Want More?','simple-dir');?></h2>
 <h3><?php _e('More Features.  More Support.','simple-dir');?></h3>
 <p><?php _e('<strong>Simple Directory Pro</strong> gives you more features and more control to take your directory site to new heights.','simple-dir');?></p>
-<a href="http://contexta.ca/simple-directory/" target="_blank" class="btn"><?php _e('Learn About Pro','simple-dir');?></a>
+<p><ul><li>Display payment types and business hours</li>
+<li>"Add to Contacts" link</li>
+<li>Share listings buttons</li>
+<li>New features coming all the time</li>
+</ul>
+<a href="http://codecanyon.net/item/simple-directory-pro/11869464man/portfolio?ref=michaellautman" target="_blank" class="btn"><?php _e('Learn About Pro','simple-dir');?></a>
 </div>
 <div class="box white-bg">
 <h2><?php _e('Improve Your Local SEO','simple-dir');?></h2>
