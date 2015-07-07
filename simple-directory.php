@@ -3,7 +3,7 @@
  * Plugin Name: Simple Directory Plugin
  * Plugin URI: http://contexta.ca/simple-directory/
  * Description: Creates a very simple business listing post type.
- * Version:1.4.9
+ * Version:1.4.10
  * Author: michaellautman
  * Author URI: http://contexta.ca
  * Plugin Type: Piklist
@@ -171,6 +171,11 @@ array(
 	'required' => false,
 	),
 
+array(
+	'name' =>'Relevanssi',
+	'slug' =>'relevanssi',
+	'required' => true,
+	),
  );
 
 
@@ -207,6 +212,9 @@ array(
  tgmpa( $plugins, $config );
 
 }
+
+//Get The Functions
+include_once('includes/output-functions.php');
 
 
 
