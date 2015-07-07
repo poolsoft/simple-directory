@@ -85,6 +85,7 @@ text-decoration:underline;
 <p><?php _e('The plugin comes with two templated for displaying the listings: single-listing.php and archive-listing.php.  Both of these files are found in the /templates/ directory.  You can customize the templates, but any changes will be overwritten when you upgrade.','simple-dir');?></p>
 <h2><?php _e('Support','simple-dir');?></h2>
 <p><?php _e('Looking for support? Got questions?','simple-dir');?>  <a href="https://wordpress.org/support/plugin/simple-directory" target="_blank"><?php _e('Visit the support forum to get answers','simple-dir');?></a>.  <?php _e('Want more?','simple-dir');?>  <a href="http://codecanyon.net/item/simple-directory-pro/11869464man/portfolio?ref=michaellautman" target="_blank"><?php _e('Upgrage to Pro','simple-dir');?></a>.</p>
+<h2>Using Simple Directory</h2>
 </div>
 <div class="col-4 center">
 <div class="box white-bg">
