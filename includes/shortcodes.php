@@ -1,6 +1,5 @@
 <?php
 
-
 //Search Box Shortcode
 function simple_dir_search_shortcode( $form ) {
 
