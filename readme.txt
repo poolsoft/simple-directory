@@ -4,7 +4,7 @@ Donate link: http://contexta.ca/simple-directory/
 Tags: directory,custom post type, piklist, wordpress directory, business directory, wordpress business directory plugin, simple directory plugin, post, schema.org, microformat, google maps,shortcode
 Requires at least: 4.0
 Tested up to: 4.2.2
-Stable tag: 1.4.7
+Stable tag: 1.4.11
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -126,6 +126,8 @@ Updates to archive pages.  Premium listings are now shown above basic listings.
 *Added settings page.
 
 == Upgrade Notice ==
+= 1.4.11 =
+Fixed missing file error.
 = 1.4.6 =
 Fixed bug with search shortcode.
 = 1.4.2 =

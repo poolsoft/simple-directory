@@ -40,21 +40,13 @@ get_header(); ?>
 					</div><!--END TITLE-LOGO ROW-->
 			<div class="row"><!--ADDRESS ROW-->
 			<div class="small-12 columns">
-			<?php if($dir_meta['listing_street_address'][0] !='') {?>
-				<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-				<span itemprop="streetAddress"><?php echo $dir_meta['listing_street_address'][0]; ?></span>, 
-				<span itemprop="addressLocality"><?php echo $dir_meta['listing_city'][0];?></span>,
-				<span itemprop="addressRegion"><?php echo $dir_meta['listing_state'][0];?></span>
-				<span itemprop="postalCode"><?php echo $dir_meta['listing_postalcode'][0];?></span>
-					</div> <!--END POSTAL ADDRESS--><?php }
-						else {
-						echo '';}?>
+			<?php simple_dir_address_output();?>
 			</div>
 			</div><!--END ADRESS ROW-->
 			<div class="row"><!--START LISTING-PHONE-DIRECTIONS-->
 			<div class="medium-4 small-12 columns">
 			<?php if($dir_meta['listing_phone_1'][0] !='') {?>	
-			<i class="fi-telephone single-listing-icon"></i> <a class="single-listing-meta" href="tel:+1<?php echo $dir_meta['listing_phone_1'][0];?>">
+			<i class="fi-telephone single-listing-icon"></i> <a class="single-listing-meta" href="tel:<?php echo $dir_meta['listing_phone_1'][0];?>">
 						<?php echo $dir_meta['listing_phone_1'][0];?></a>
 				<?php }?>
 			</div>
@@ -85,16 +77,8 @@ get_header(); ?>
 			</div><!--END SOCIAL ROW-->
 				
 			<div class="small-12 columns hide-for-small" id="single-social-block">
-			<?php if($dir_meta['listing_status'][0] =='premium') {?>		
-	<?php if(isset($dir_meta['listing_facebook'][0])){?>	<a href="<?php echo $dir_meta['listing_facebook'][0];?>" target="_blank" rel="nofollow"> <i class="fi-social-facebook icon-medium"></i></a>&nbsp;<?php }?>					
-	<?php if(isset($dir_meta['listing_twitter'][0])){?><a href="http://twitter.com/<?php echo $dir_meta['listing_twitter'][0];?>" rel="nofollow" target="_blank"><i class="fi-social-twitter icon-medium"></i></a>&nbsp;<?php }?>
-	<?php if(isset($dir_meta['listing_gplus'][0])) {?><a href="<?php echo $dir_meta['listing_gplus'][0];?>" rel="nofollow" target="_blank"><i class="fi-social-google-plus icon-medium"></i></a>&nbsp;<?php }?>											
-	<?php if(isset($dir_meta['listing_linkedin'][0])) {?><a href="<?php echo $dir_meta['listing_linkedin'][0];?>" rel="nofollow" target="_blank"><i class="fi-social-linkedin icon-medium"></i></a>&nbsp;<?php }?>
-	<?php if(isset($dir_meta['listing_youtube'][0])) {?><a href="<?php echo $dir_meta['listing_youtube'][0];?>" rel="nofollow" target="_blank"><i class="fi-social-youtube icon-medium"></i></a>&nbsp;<?php }?>
-	<?php if(isset($dir_meta['listing_instagram'][0])) {?><a href="http://instagram.com/<?php echo $dir_meta['listing_instagram'][0];?>" rel="nofollow" target="_blank"><i class="fi-social-instagram icon-medium"></i></a>&nbsp;<?php }?>
-	<?php if($dir_meta['listing_pinterest'][0] !='') {?><a href="<?php echo $dir_meta['listing_pinterest'][0];?>" rel="nofollow" target="_blank"?><i class="fi-social-pinterest icon-medium"></i></a>&nbsp;<?php }?>
-	<?php if($dir_meta['listing_rss'][0] !='') {?><a href="<?php echo $dir_meta['listing_rss'][0];?>" rel="nofollow" target="_blank"><i class="fi-rss icon-medium"></i></a>&nbsp;<?php }?>
-													<?php }?>			
+			<?php if($dir_meta['listing_status'][0] =='premium') {
+				simple_dir_social_block(); }?>			
 			</div>
 		</div><!--END TITLE-LOGO-CONTACT-->
 		<div class="medium-4 columns hide-for-small"><!--MAP-->
