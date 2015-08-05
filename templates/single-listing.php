@@ -52,7 +52,11 @@ get_header(); ?>
 			</div>
 			<div class="medium-4 small-12 columns">
 				<?php if ($dir_meta['listing_website_url'][0] !='') {?>
-			<i class="fi-laptop single-listing-icon"></i> <a class="single-listing-meta" href="http://<?php echo $dir_meta['listing_website_url'][0];?>" target="_blank" rel="nofollow"><?php _e('Website','simple-dir');?></a>
+						
+			<i class="fi-laptop single-listing-icon"></i> <a class="single-listing-meta" href="http://<?php
+			$url = $dir_meta['listing_website_url'][0];
+					$url = preg_replace('#^https?://#','',rtrim($url,'/'));
+					echo $url;?>" target="_blank" rel="nofollow"><?php _e('Website','simple-dir');?></a>
 				<?php }?>
 			</div>
 			<div class="medium-4 small-12 columns">
@@ -73,13 +77,23 @@ get_header(); ?>
 			</div>
 			</div><!--END PHONE-DIRECTIONS-WEBSITE ROW-->
 				
-			<div class="row"><!--START SOCIAL ROW-->
-			</div><!--END SOCIAL ROW-->
-				
-			<div class="small-12 columns hide-for-small" id="single-social-block">
-			<?php if($dir_meta['listing_status'][0] =='premium') {
-				simple_dir_social_block(); }?>			
+			
+			<?php if($dir_meta['listing_status'][0] =='premium') {?>
+				<div class="row">
+			<div class="small-5 columns">
+			<?php $tel_2_label= (!empty($dir_meta['phone_2_label'][0]) ? '<strong>'.$dir_meta['phone_2_label'][0].':</strong>' : __('<strong>Other Phone:</strong>','sdp'));
+			$tel_2 = (!empty($dir_meta['listing_phone_2'][0]) ?  $dir_meta['listing_phone_2'][0] : '');
+			echo $tel_2_label. '&nbsp;'. $tel_2;?>
 			</div>
+			<div class="small-3 columns end">
+			<?php $fax = (!empty($dir_meta['listing_fax'][0]) ? '<strong>Fax:</strong>&nbsp;'. $dir_meta['listing_fax'][0]: '');
+			echo $fax;?>
+			</div>
+			</div><div class="row"><!--START SOCIAL ROW-->
+			
+			<div class="small-12 columns hide-for-small" id="single-social-block">
+				<?php simple_dir_social_block(); }?>			
+			</div></div>
 		</div><!--END TITLE-LOGO-CONTACT-->
 		<div class="medium-4 columns hide-for-small"><!--MAP-->
 		
@@ -133,8 +147,7 @@ $directory_settings = get_option('simple_directory_settings');
 </div><!--END CONTENT-->
 </div><!--END PRIMARY-->
 	<?php $dir_settings = get_option('simple_directory_settings');
-$comments = isset($dir_settings['show_comments']);
-if ($comments == 'yes'){?>
+if(isset($dir_settings['show_comments']) && $dir_settings['show_comments'] == 'yes'){?>
 		<div class="row">
 <div class="small-12 columns">
 <?php comments_template(); ?>

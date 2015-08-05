@@ -3,8 +3,8 @@ Contributors: michaellautman
 Donate link: http://contexta.ca/simple-directory/
 Tags: directory,custom post type, piklist, wordpress directory, business directory, wordpress business directory plugin, simple directory plugin, post, schema.org, microformat, google maps,shortcode
 Requires at least: 4.0
-Tested up to: 4.2.2
-Stable tag: 1.4.11
+Tested up to: 4.2.4
+Stable tag: 1.4.14
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -91,6 +91,8 @@ METHOD 3 - FTP
 Got questions?  See the [documentation](http://contexta.ca/simple-directory/simple-directory-documentation/ "Simple Directory Documentation").
 
 == Changelog ==
+= 1.4.12 = 
+Bug fix - Website URLs are checked and corrected so links don't break.  Other phone number and fax number now display on premium listings.
 = 1.4.7 =
 Added Relevanssi to list of recommended plugins.
 = 1.4.6 =
@@ -126,6 +128,8 @@ Updates to archive pages.  Premium listings are now shown above basic listings.
 *Added settings page.
 
 == Upgrade Notice ==
+= 1.4.12 =
+Bug fix with website URLS.  Other phone number and fax number now display on premium listings.
 = 1.4.11 =
 Fixed missing file error.
 = 1.4.6 =

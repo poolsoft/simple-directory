@@ -98,6 +98,17 @@ piklist ('field', array(
 )); 
 
 piklist ('field', array(
+	'type' => 'text'
+	,'field' =>'phone_2_label'
+	,'label' => __('Label for Other Phone Number','simple-dir')
+	,'help' =>__('Enter the label you want displayed with the other phone number.  Examples are \'mobile\' or \'toll free\'.','simple-dir')
+	,'sanitize' => array(
+		array(
+		'type' => 'text_field'
+		))
+		));
+
+piklist ('field', array(
 	'type' => 'text',
 	'field' => 'listing_fax',
 	'label' => 'Fax Number',
@@ -115,14 +126,11 @@ piklist ('field', array(
 	'type' => 'text',
 	'field' => 'listing_website_url',
 	'label' => 'Website URL',
-	'description' =>'The address of your website',
+	'description' =>'The address of your website, <strong>without the http://</strong>',
 	'attributes' => array(
 		'class' =>'text')
-		,'sanitize' => array(
-      array(
-        'type' => 'text_field'
-      )
-    )
+		
+    
 ));
 
 
